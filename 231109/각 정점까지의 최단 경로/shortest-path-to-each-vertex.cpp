@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <queue>
+#include <tuple>
 
 #define INF 1e9
 
@@ -16,9 +17,10 @@ int main() {
         int u,v,z;
         cin >> u >> v >> z;
         adj[u].push_back({v,z});
+        adj[v].push_back({u,v});
     }
     //거리 배열을 충분히 큰 값으로 초기화
-    fill(d, d+20'001, INF);
+    fill(d, d+20001, INF);
 
     d[st] = 0; //시작 지점을 0으로 값 넣어줌
 
@@ -33,16 +35,17 @@ int main() {
 
         for(int i=0; i<adj[min_index].size(); i++){
             int target_dist, target_index;
-            tie(target_dist, target_index) = adj[min_index][i];
+            tie(target_index, target_dist) = adj[min_index][i];
 
-            if(d[target_index] >= target_dist + d[min_index]){
-                d[target_index] = target_dist + d[min_index]
+            if(d[target_index] > target_dist + d[min_index]){
+                d[target_index] = target_dist + d[min_index];
                 pq.push({-(target_dist + d[min_index]), target_index});
             }
         }
     }
     for(int i=1;i<=n;i++){
-        cout << d[i] << "\n";
+        if(d[i] == INF){cout << -1 << "\n";}
+        else {cout << d[i] << "\n";}
     }
 
 
