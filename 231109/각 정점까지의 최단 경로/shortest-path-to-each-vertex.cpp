@@ -17,7 +17,7 @@ int main() {
         int u,v,z;
         cin >> u >> v >> z;
         adj[u].push_back({v,z});
-        adj[v].push_back({u,v});
+        adj[v].push_back({u,z});
     }
     //거리 배열을 충분히 큰 값으로 초기화
     fill(d, d+20001, INF);
