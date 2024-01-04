@@ -9,12 +9,6 @@ public class Main {
                             .mapToInt(Integer::parseInt)
                             .toArray();
 
-        numbers[0] = 1;
-        numbers[1] = 1;
-        numbers[2] = 1;
-        numbers[3] = 1;
-
-
         int len = numbers.length;
         int maxNumber = 0;
         for(int i=1;i<len;i++){
