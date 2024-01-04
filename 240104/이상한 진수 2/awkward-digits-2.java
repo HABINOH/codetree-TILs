@@ -9,6 +9,12 @@ public class Main {
                             .mapToInt(Integer::parseInt)
                             .toArray();
 
+        numbers[0] = 1;
+        numbers[1] = 1;
+        numbers[2] = 1;
+        numbers[3] = 1;
+
+
         int len = numbers.length;
         int maxNumber = 0;
         for(int i=1;i<len;i++){
@@ -18,11 +24,12 @@ public class Main {
             maxNumber = Math.max(maxNumber, changeNumber(numbers));
             //System.out.println("maxNumber" + maxNumber);
 
-            if(numbers[i] == 0){numbers[i] = 0;}
-            else {numbers[i] = 1;}
+            if(numbers[i] == 0){numbers[i] = 1;}
+            else {numbers[i] = 0;}
         }
         System.out.println(maxNumber);
     }
+
     public static int changeNumber(int[] numbers){
         int mul = 1;
         int result = 0;
