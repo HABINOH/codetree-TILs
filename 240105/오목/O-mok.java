@@ -20,9 +20,8 @@ public class Main {
                 if(map[i][j] == 1 || map[i][j] == 2){
                     for(int k=0;k<8;k++){
                         int cnt = 1;
-                        int curX = i;
-                        int curY = j;
-
+                        int curX = i; int curY = j;
+                        int centerX = 0; int centerY = 0;
                         while(true){
                             int nx = curX + dx[k];
                             int ny = curY + dy[k];
@@ -30,11 +29,12 @@ public class Main {
                             if(map[nx][ny] != map[curX][curY]){break;}
                             cnt++;
                             curX = nx; curY = ny;
-                        }
-                        if(cnt == 5){
-                            System.out.println(map[i][j]);
-                            System.out.println((i + 2 * dx[k] + 1) + " " + (j + 2 * dy[k] + 1));
-                            System.exit(0);
+                            if(cnt == 3){centerX = nx; centerY = ny;}
+                            if(cnt == 5){
+                                System.out.println(map[i][j]);
+                                System.out.println((centerX+1) + " " + (centerY+1));
+                                System.exit(0); //== return;
+                            }
                         }
                     }
                 }
