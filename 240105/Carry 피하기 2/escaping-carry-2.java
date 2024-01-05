@@ -39,10 +39,11 @@ public class Main {
         
         return Integer.parseInt(str);
     }
-    //0 : 4자리
-    //1 : 3자리
-    //2 : 2자리
-    //3 : 1자리
+    //0 : 5자리
+    //1 : 4자리
+    //2 : 3자리
+    //3 : 2자리
+    //4 : 1자리
     public static void numberSet(String num, int idx){
         if(num.length() > 4){
             number[idx][4] = Character.getNumericValue(num.charAt(0));
