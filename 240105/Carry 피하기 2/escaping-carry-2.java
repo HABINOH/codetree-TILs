@@ -32,7 +32,7 @@ public class Main {
         for(int i=0;i<5;i++){
             sum[i] = (number[0][i] + number[1][i] + number[2][i]);
             if(sum[i] >= 10 ){
-                return 0;
+                return -1;
             }
         }
         String str = Integer.toString(sum[4]) + Integer.toString(sum[3]) + Integer.toString(sum[2]) + Integer.toString(sum[1]) + Integer.toString(sum[0]);
