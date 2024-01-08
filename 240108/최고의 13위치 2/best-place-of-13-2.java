@@ -29,6 +29,16 @@ public class Main {
                 }
             }
         }
+        //마지막 줄 체크
+        for(int i=n-1;i<n;i++){
+            for(int j=0;j<n-5;j++){
+                sum = map[i][j] + map[i][j+1] + map[i][j+2];
+                for(int k=j+1;k<n-5;k++){
+                    sum += map[i][k] + map[i][k+1] + map[i][k+2];
+                }
+                result = Math.max(result, sum);
+            }
+        }
         System.out.println(result);
     }
 }
