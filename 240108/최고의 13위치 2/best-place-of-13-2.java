@@ -33,7 +33,7 @@ public class Main {
         for(int i=n-1;i<n;i++){
             for(int j=0;j<n-5;j++){
                 int lastSum = map[i][j] + map[i][j+1] + map[i][j+2];
-                for(int k=j+3;k<n-5;k++){
+                for(int k=j+3;k<n-3;k++){
                     sum = lastSum;
                     sum += map[i][k] + map[i][k+1] + map[i][k+2];
                 }
