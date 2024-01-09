@@ -15,10 +15,10 @@ public class Main {
         for(int i=0;i<n;i++){
             for(int j=i;j<n;j++){
                 int sum = 0;
-                for(int k=i; k<j; k++){
+                for(int k=i; k<=j; k++){
                     sum += numbers[k];
-                    sum /= k+1;
                 }
+                if(j!=0) sum /= j;
                 for(int k=i; k<=j; k++){
                     if(numbers[k] == sum){result++;}
                 }
