@@ -18,7 +18,7 @@ public class Main {
                 for(int k=i; k<=j; k++){
                     sum += numbers[k];
                 }
-                if(j!=0) sum /= j;
+                if(j!=0)sum /= j;
                 for(int k=i; k<=j; k++){
                     if(numbers[k] == sum){result++; break;}
                 }
