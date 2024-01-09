@@ -18,9 +18,9 @@ public class Main {
                 for(int k=i; k<=j; k++){
                     sum += numbers[k];
                 }
-                if(j!=0)sum /= j;
+                double avg = (double)sum / (j-i+1);
                 for(int k=i; k<=j; k++){
-                    if(numbers[k] == sum){result++; break;}
+                    if(numbers[k] == avg){result++; break;}
                 }
             }
         }
