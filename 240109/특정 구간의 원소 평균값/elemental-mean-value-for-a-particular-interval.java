@@ -20,7 +20,7 @@ public class Main {
                 }
                 if(j!=0) sum /= j;
                 for(int k=i; k<=j; k++){
-                    if(numbers[k] == sum){result++;}
+                    if(numbers[k] == sum){result++; break;}
                 }
             }
         }
