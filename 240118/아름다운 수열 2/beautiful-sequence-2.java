@@ -28,12 +28,17 @@ public class Main {
         for(int i=0;i<comp.size();i++){
             int[] resultNumbers = comp.get(i);
             for(int j=0;j<=n-m;j++){
-                if(numberA.get(j) == resultNumbers[0]
-                && numberA.get(j+1) == resultNumbers[1]
-                && numberA.get(j+2) == resultNumbers[2]){hs.add(j);}
+                int count = 0;
+                for(int k=0;k<resultNumbers.length;k++){
+                    if(numberA.get(j+k) == resultNumbers[k]){
+                        count++;
+                    }
+                }
+                if(count == resultNumbers.length){
+                    hs.add(j);
+                }
             }
         }
-
         System.out.print(hs.size());
     }
     public static void comb(int cnt, ArrayList<Integer> number){
