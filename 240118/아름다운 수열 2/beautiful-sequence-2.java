@@ -24,17 +24,17 @@ public class Main {
             numberB.add(Integer.parseInt(stk.nextToken()));
         }
         comb(0, numberB);
-
+        HashSet<Integer> hs = new HashSet<>();
         for(int i=0;i<comp.size();i++){
             int[] resultNumbers = comp.get(i);
             for(int j=0;j<=n-m;j++){
                 if(numberA.get(j) == resultNumbers[0]
                 && numberA.get(j+1) == resultNumbers[1]
-                && numberA.get(j+2) == resultNumbers[2]){result++;}
+                && numberA.get(j+2) == resultNumbers[2]){hs.add(j);}
             }
         }
 
-        System.out.print(result);
+        System.out.print(hs.size());
     }
     public static void comb(int cnt, ArrayList<Integer> number){
         if(cnt==m){
