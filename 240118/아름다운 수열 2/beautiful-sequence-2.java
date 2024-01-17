@@ -30,7 +30,7 @@ public class Main {
             for(int j=0;j<=n-m;j++){
                 int count = 0;
                 for(int k=0;k<resultNumbers.length;k++){
-                    if(numberA.get(j+k) == resultNumbers[k]){
+                    if(numberA.get(j+k) == resultNumbers[k] && j+k<=n-m){
                         count++;
                     }
                 }
