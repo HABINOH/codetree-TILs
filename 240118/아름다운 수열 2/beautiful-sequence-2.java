@@ -3,8 +3,8 @@ import java.io.*;
 public class Main {
     public static int n = 0;
     public static int m = 0;
-    public static int[] arr = new int[3];
-    public static boolean[] visit = new boolean[3];
+    public static int[] arr;
+    public static boolean[] visit;
     public static int result = 0;
     public static ArrayList<Integer> numberA = new ArrayList<>();
     public static ArrayList<int[]> comp = new ArrayList<>();
@@ -13,6 +13,8 @@ public class Main {
         StringTokenizer stk = new StringTokenizer(br.readLine());
         n = Integer.parseInt(stk.nextToken());
         m = Integer.parseInt(stk.nextToken());
+        arr = new int[m];
+        visit = new boolean[m];
         
         stk = new StringTokenizer(br.readLine(), " ");
         while(stk.hasMoreTokens()){
