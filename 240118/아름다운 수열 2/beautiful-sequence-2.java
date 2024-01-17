@@ -7,6 +7,7 @@ public class Main {
     public static boolean[] visit = new boolean[3];
     public static int result = 0;
     public static ArrayList<Integer> numberA = new ArrayList<>();
+    public static ArrayList<int[]> comp = new ArrayList<>();
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer stk = new StringTokenizer(br.readLine());
@@ -23,19 +24,21 @@ public class Main {
             numberB.add(Integer.parseInt(stk.nextToken()));
         }
         comb(0, numberB);
+
+        for(int i=0;i<comp.size();i++){
+            int[] resultNumbers = comp.get(i);
+            for(int j=0;j<=n-m;j++){
+                if(numberA.get(j) == resultNumbers[0]
+                && numberA.get(j+1) == resultNumbers[1]
+                && numberA.get(j+2) == resultNumbers[2]){result++;}
+            }
+        }
+
         System.out.print(result);
     }
     public static void comb(int cnt, ArrayList<Integer> number){
         if(cnt==m){
-            for(int i=0;i<=n-m;i++){
-                if(numberA.get(i) == arr[0]){
-                    if(numberA.get(i+1) == arr[1]){
-                        if(numberA.get(i+2) == arr[2]){
-                            result++;
-                        }
-                    }
-                }
-            }
+            comp.add(Arrays.copyOf(arr, arr.length));
             return;
         }
         for(int i=0;i<m;i++){
