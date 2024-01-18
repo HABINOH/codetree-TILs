@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 public class Main {
-    public static int[] candy = new int[201];
+    public static int[] candy = new int[401];
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer stk = new StringTokenizer(br.readLine(), " ");
@@ -16,7 +16,7 @@ public class Main {
         }
 
         int result = 0;
-        for(int i=k;i<201-k;i++){
+        for(int i=k;i<401-k;i++){
             int sum = 0;
             for(int j=i-k; j<=i+k; j++){
                 sum += candy[j];
