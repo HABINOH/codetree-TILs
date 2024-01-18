@@ -17,9 +17,11 @@ public class Main {
 
         int result = 0;
         for(int i=k;i<201-k;i++){
-            int pre = candy[i-1] + candy[i-2] + candy[i-3];
-            int post = candy[i] + candy[i+1] + candy[i+2] + candy[i+3];
-            result = Math.max(result, pre+post);
+            int sum = 0;
+            for(int j=i-3; j<=i+3; j++){
+                sum += candy[j];
+            }
+            result = Math.max(result, sum);
         }
         System.out.println(result);
     }
