@@ -18,7 +18,7 @@ public class Main {
         int result = 0;
         for(int i=k;i<201-k;i++){
             int sum = 0;
-            for(int j=i-3; j<=i+3; j++){
+            for(int j=i-k; j<=i+k; j++){
                 sum += candy[j];
             }
             result = Math.max(result, sum);
