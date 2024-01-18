@@ -25,36 +25,23 @@ public class Main {
         while(stk.hasMoreTokens()){
             numberB.add(Integer.parseInt(stk.nextToken()));
         }
-        comb(0, numberB);
-        HashSet<Integer> hs = new HashSet<>();
-        for(int i=0;i<comp.size();i++){
-            int[] resultNumbers = comp.get(i);
-            for(int j=0;j<=n-m;j++){
-                int count = 0;
-                for(int k=0;k<resultNumbers.length;k++){
-                    if(numberA.get(j+k) == resultNumbers[k] && j+k<n){
-                        count++;
-                    }
-                }
-                if(count == resultNumbers.length){
-                    hs.add(j);
+        Collections.sort(numberB);
+        int[] temp = new int[m];
+        for(int i=0;i<=n-m;i++){
+            for(int j=0;j<m;j++){ //전체 요소(N)에서 M 개수만큼 비교 할 요소 빼기
+                temp[j] = numberA.get(i+j);
+            }
+            Arrays.sort(temp); //뺀 요소 정렬
+            int count = 0;
+            for(int k=0;k<temp.length;k++){
+                if(temp[k] == numberB.get(k)){
+                    count++;
                 }
             }
-        }
-        System.out.print(hs.size());
-    }
-    public static void comb(int cnt, ArrayList<Integer> number){
-        if(cnt==m){
-            comp.add(Arrays.copyOf(arr, arr.length));
-            return;
-        }
-        for(int i=0;i<m;i++){
-            if(!visit[i]){
-                visit[i] = true;
-                arr[cnt] = number.get(i);
-                comb(cnt+1, number);
-                visit[i] = false;
+            if(count == temp.length){
+                result++;
             }
         }
+        System.out.println(result);
     }
 }
