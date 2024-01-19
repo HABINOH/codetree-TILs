@@ -3,26 +3,41 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer stk = new StringTokenizer(br.readLine(), " ");
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int n = Integer.parseInt(stk.nextToken());
-        int h = Integer.parseInt(stk.nextToken());
-        int t = Integer.parseInt(stk.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int h = Integer.parseInt(st.nextToken());
+        int t = Integer.parseInt(st.nextToken());
 
-        stk = new StringTokenizer(br.readLine(), " ");
-        int idx = 0;
+        int answer;
+
+        st = new StringTokenizer(br.readLine());
         int[] heights = new int[n];
-        while(stk.hasMoreTokens()){
-            heights[idx++] = Integer.parseInt(stk.nextToken());
+        for(int i = 0; i < n; i++){
+            heights[i] = Integer.parseInt(st.nextToken());
+        } 
+        int[] diff = new int[n];
+
+        for(int i = 0; i < n; i++){
+            diff[i] = Math.abs(h - heights[i]);
         }
-        int answer = Integer.MAX_VALUE;
-        for(int i=0;i<n-t;i++){
-            int sum = 0;
-            for(int j=i; j<i+t; j++){
-                sum += Math.abs(h - heights[j]);
+
+        int sum = 0;
+
+        for(int i = 0; i < t; i++){
+            sum += diff[i];
+        }
+
+        answer = sum;
+
+        int start = 0;
+        for(int i = t; i <n; i++){
+            sum -= diff[start++];
+            sum += diff[i];
+            if(answer > sum){
+                answer = sum;
             }
-            answer = Math.min(answer, sum);
         }
-        System.out.print(answer);
+        System.out.println(answer);
     }
 }
