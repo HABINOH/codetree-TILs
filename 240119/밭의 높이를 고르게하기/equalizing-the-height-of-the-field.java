@@ -15,24 +15,14 @@ public class Main {
         while(stk.hasMoreTokens()){
             heights[idx++] = Integer.parseInt(stk.nextToken());
         }
-        int answer = 0;
-        for(int i=0;i<n;i++){
-            int right = 0;
-            int left = 0;
-            int lengthSum = 1;
-            for(int j=i+1; j<n; j++){
-                if((heights[i] == heights[j]-1) || (heights[i] == heights[j]+1)){right++;}
-                else {break;}
+        int answer = Integer.MAX_VALUE;
+        for(int i=0;i<n-t;i++){
+            int sum = 0;
+            for(int j=i; j<i+t; j++){
+                sum += Math.abs(h - heights[j]);
             }
-            for(int j=i-1; j>=0; j--){
-                if((heights[i] == heights[j]-1) || (heights[i] == heights[j]+1)){left++;}
-                else {break;}
-            }
-            lengthSum += right + left;
-            if(lengthSum >= t){
-                answer = Math.max(answer, lengthSum);
-            }
+            answer = Math.min(answer, sum);
         }
-        System.out.print(answer-1);
+        System.out.print(answer);
     }
 }
