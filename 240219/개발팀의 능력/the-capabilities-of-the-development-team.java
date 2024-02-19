@@ -26,7 +26,7 @@ public class Main {
             }
         }
         if(answer == Integer.MAX_VALUE){System.out.print(-1);}
-        System.out.print(answer);
+        else {System.out.print(answer);}
     }
     public static int getDiff(int i, int j, int k, int q){
         int sum1 = develop[i] + develop[j];
@@ -36,10 +36,8 @@ public class Main {
         if((sum1 != sum2) && (sum1 != sum3) && (sum2 != sum3)){
             int max = Math.max(Math.max(sum1, sum2), sum3);
             int min = Math.min(Math.min(sum1, sum2), sum3);
-
             return Math.abs(max - min);
-        }else{
-            return Integer.MAX_VALUE;
         }
+        return Integer.MAX_VALUE;
     }
 }
