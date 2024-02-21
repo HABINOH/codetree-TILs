@@ -16,7 +16,8 @@ public class Main {
         int dis = Integer.MAX_VALUE;
         int answer = 0;
         for(int i=0;i<n;i++){
-            for(int j=i+1;j<n;j++){
+            for(int j=0;j<n;j++){
+                if(i==j){continue;}
                 //i j 위치 차이 구하기
                 int compDis = Math.abs(point[i][0] - point[j][0]) + Math.abs(point[i][1] - point[j][1]);
                 //작은 값 갱신하기
