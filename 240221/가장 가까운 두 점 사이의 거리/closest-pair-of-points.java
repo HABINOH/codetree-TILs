@@ -21,7 +21,7 @@ public class Main {
                 //i j 위치 차이 구하기
                 int compDis = Math.abs(point[i][0] - point[j][0]) + Math.abs(point[i][1] - point[j][1]);
                 //작은 값 갱신하기
-                if(dis > compDis){
+                if(dis >= compDis){
                     answer = Math.abs(point[i][0] - point[j][0]) * Math.abs(point[i][0] - point[j][0]);
                     answer += Math.abs(point[i][1] - point[j][1]) * Math.abs(point[i][1] - point[j][1]);
                     dis = compDis;
