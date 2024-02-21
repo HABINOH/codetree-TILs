@@ -20,7 +20,7 @@ public class Main {
                 //i j 위치 차이 구하기
                 //작은 값 갱신하기
                 int cal = (pointX[i] - pointX[j]) * (pointX[i] - pointX[j]) 
-                + (pointY[i] - pointY[j]) * (pointX[i] - pointY[j]);
+                + (pointY[i] - pointY[j]) * (pointY[i] - pointY[j]);
                 answer = Math.min(answer, cal);
             }
         }
