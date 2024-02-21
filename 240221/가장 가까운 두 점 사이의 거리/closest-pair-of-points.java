@@ -6,27 +6,22 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
 
-        int[][] point = new int[n][2];
+        int[] pointX = new int[n];
+        int[] pointY = new int[n];
 
         for(int i=0;i<n;i++){
             StringTokenizer stk = new StringTokenizer(br.readLine(), " ");
-            point[i][0] = Integer.parseInt(stk.nextToken());
-            point[i][1] = Integer.parseInt(stk.nextToken());
+            pointX[i] = Integer.parseInt(stk.nextToken());
+            pointY[i] = Integer.parseInt(stk.nextToken());
         }
-        int dis = Integer.MAX_VALUE;
-        int answer = 0;
+        int answer = Integer.MAX_VALUE;;
         for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
-                if(i==j){continue;}
+            for(int j=i+1;j<n;j++){
                 //i j 위치 차이 구하기
-                int compDis = Math.abs(point[i][0] - point[j][0]) + Math.abs(point[i][1] - point[j][1]);
                 //작은 값 갱신하기
-                if(dis >= compDis){
-                    answer = Math.abs(point[i][0] - point[j][0]) * Math.abs(point[i][0] - point[j][0]);
-                    answer += Math.abs(point[i][1] - point[j][1]) * Math.abs(point[i][1] - point[j][1]);
-                    dis = compDis;
-                }
-                //갱신되면 두 점사이 거리의 제곱값 저장
+                int cal = (pointX[i] - pointX[j]) * (pointX[i] - pointX[j]) 
+                + (pointY[i] - pointY[j]) * (pointX[i] - pointY[j]);
+                answer = Math.min(answer, cal);
             }
         }
         //출력
