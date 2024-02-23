@@ -26,7 +26,7 @@ public class Main {
                 if(tempBudget - student[j] > 0){
                     tempBudget -= student[j];
                     cnt++;
-                }else{break;}
+                }
             }
             answer = Math.max(answer, cnt+1);
         }
