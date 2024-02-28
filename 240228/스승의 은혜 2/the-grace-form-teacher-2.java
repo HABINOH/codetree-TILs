@@ -12,14 +12,16 @@ public class Main {
         for(int i=0;i<n;i++){
             student[i] = Integer.parseInt(br.readLine());
         }
+
+        Arrays.sort(student);
+
         int answer = 0;
         for(int i=0;i<n;i++){
             int tempBudget = budget;
-            int cnt = 0;
+            int cnt = 1;
             //i를 반값으로
-            if(student[i] != 0){
-                tempBudget -= student[i] / 2;
-            }
+            tempBudget -= student[i] / 2;
+            
             for(int j=0;j<n;j++){
                 if(i==j){continue;}
                 //j들 선물주기
@@ -28,7 +30,7 @@ public class Main {
                     cnt++;
                 }
             }
-            answer = Math.max(answer, cnt+1);
+            answer = Math.max(answer, cnt);
         }
         System.out.print(answer);
     }
