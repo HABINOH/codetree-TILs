@@ -23,7 +23,7 @@ public class Main {
             for(int j=0;j<n;j++){
                 if(i==j){continue;}
                 //j들 선물주기
-                if(tempBudget - student[j] > 0){
+                if(tempBudget - student[j] >= 0){
                     tempBudget -= student[j];
                     cnt++;
                 }
