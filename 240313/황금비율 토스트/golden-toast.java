@@ -27,8 +27,8 @@ public class Main {
             }else if(str.equals("D")){
                 if(it.hasPrevious()){
                     it.previous();
-                    it.remove();
                 }
+                it.remove();
             }else{
                 char c = stk.nextToken().charAt(0);
                 it.add(c);
