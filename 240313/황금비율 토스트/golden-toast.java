@@ -14,28 +14,29 @@ public class Main {
         for(int i=0;i<str.length();i++){
             list.addLast(str.charAt(i));
         }
-        ListIterator<Character> it = list.listIterator(list.size()-1); 
+        ListIterator<Character> it = list.listIterator(list.size()); 
         for(int i=0;i<secret;i++){
             stk = new StringTokenizer(br.readLine());
             str = stk.nextToken();
-            if(str.equals("L")){
+            if(str.equals("R")){
                 if(it.hasNext()) 
                     it.next();
-            }else if(str.equals("R")){
+            }else if(str.equals("L")){
                 if(it.hasPrevious())
                     it.previous();
             }else if(str.equals("D")){
-                if(it.hasPrevious()){
-                    it.previous();
+                if(it.hasNext()){
+                    it.next();
+                    it.remove();
                 }
-                it.remove();
             }else{
                 char c = stk.nextToken().charAt(0);
                 it.add(c);
             }
         }
-        for(int i=0;i<list.size();i++){
-            System.out.print(list.get(i));
-        }
+        it = list.listIterator();
+        while(it.hasNext())
+            System.out.print(it.next());
+        
     }
 }
